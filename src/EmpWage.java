@@ -10,23 +10,28 @@ public class EmpWage {
         double daily_emp_wage =0;
 
 
-        double empcheck = Math.floor(Math.random()*10%3);
+        int empcheck = (int)Math.floor(Math.random()*10%3);
 
-        if(empcheck == FULL_TIME_EMP){
-            System.out.println("Employee are present for full time.");
-            daily_emp_wage = EMP_FULL_TIME_HOUR * EMP_RATE_PER_HOUR;
+        switch (empcheck) {
+            case 1:
+                daily_emp_wage = EMP_FULL_TIME_HOUR * EMP_RATE_PER_HOUR;
+                System.out.println("Employee are present for full time.");
+                System.out.println("Employee Daily Wage is : " + daily_emp_wage);
+                break;
+
+            case 2:
+                daily_emp_wage = EMP_PART_TIME_HOUR * EMP_RATE_PER_HOUR;
+                System.out.println("Employee are present for part time.");
+                System.out.println("Employee wage is : "+daily_emp_wage);
+                break;
+
+            default:
+                System.out.println("Employee are not present");
+                daily_emp_wage=0;
+                System.out.println("Employee Daily Wage is : " + daily_emp_wage);
+                break;
+
+
         }
-        else if (empcheck == PART_TIME_EMP) {
-            System.out.println("Employee are present for part time.");
-            daily_emp_wage = EMP_PART_TIME_HOUR * EMP_RATE_PER_HOUR;
-        }
-        else{
-            System.out.println("Employee are not present");
-            daily_emp_wage=0;
-        }
-
-        System.out.println("Employee Daily Wage is : " + daily_emp_wage);
-
-
     }
 }
